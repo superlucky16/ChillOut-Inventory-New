@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#102a2a" />
+  <title>Chill Out Beer Inventory</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">THE CHILL OUT</p>
+      <h1>Beer Inventory</h1>
+    </div>
+    <button id="refreshBtn" class="ghost">Refresh</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Count from a photo</h2>
+      <p class="muted">Photograph the fronts and tops of all visible sleeves. You will review the count before saving.</p>
+      <label class="upload">
+        <input id="photo" type="file" accept="image/*" capture="environment" />
+        <span>Take or choose photo</span>
+      </label>
+      <img id="preview" alt="Inventory photo preview" hidden />
+      <button id="analyzeBtn" disabled>Analyze photo</button>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="reviewCard" class="card" hidden>
+      <div class="section-title">
+        <h2>Review detected inventory</h2>
+        <button id="addRowBtn" class="ghost">+ Add item</button>
+      </div>
+      <p class="muted">Correct anything the camera missed. Quantity means visible sleeves/cases, not individual cans.</p>
+      <div id="reviewRows"></div>
+      <label class="field">Counted by
+        <input id="countedBy" placeholder="Employee name" autocomplete="name" />
+      </label>
+      <button id="saveBtn">Save inventory snapshot</button>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Current inventory</h2>
+        <span id="lastUpdated" class="muted"></span>
+      </div>
+      <div id="inventoryList" class="inventory-list">
+        <p class="muted">No saved inventory yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="rowTemplate">
+    <div class="review-row">
+      <input class="brand" aria-label="Brand" placeholder="Brand / product" />
+      <input class="qty" aria-label="Quantity" type="number" inputmode="numeric" min="0" step="1" value="0" />
+      <select class="unit" aria-label="Unit">
+        <option value="sleeves">sleeves</option>
+        <option value="cases">cases</option>
+        <option value="six-packs">six-packs</option>
+        <option value="loose">loose items</option>
+      </select>
+      <button class="remove ghost" aria-label="Remove item">×</button>
+    </div>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
