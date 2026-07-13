@@ -1,5 +1,12 @@
 {
   "name": "chillout-beer-inventory",
   "compatibility_date": "2026-07-13",
-  "pages_build_output_dir": "./public"
+  "pages_build_output_dir": "./public",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "chillout-beer-inventory",
+      "database_id": "596c6c79-ffc5-43c6-bea1-583891a58c79"
+    }
+  ]
 }
