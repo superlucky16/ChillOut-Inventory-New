@@ -54,3 +54,4 @@ Redeploy after adding bindings/secrets.
 
 ## Important limitation
 This MVP counts visible packages using general-purpose vision. It cannot reliably infer packages hidden behind other packages. A later trained detector can improve consistency after collecting corrected photos and labels.
+ 
